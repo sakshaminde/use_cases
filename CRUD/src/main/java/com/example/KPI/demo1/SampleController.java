@@ -11,16 +11,17 @@ public class SampleController {
 	@Autowired
 	private EmployeeRepo er;// up to date
 
-	@GetMapping("/sample")
-	public List<EmployeeEntity> getSample() {
-		ArrayList<EmployeeEntity> transformedvalues = new ArrayList<EmployeeEntity>();
+	@GetMapping("/Name")
+	public List<String> getSample() {
+		ArrayList<String> transformedvalues = new ArrayList<String>();
 		for (EmployeeEntity emt : er.findAll()) {
 			EmployeeEntity temp = new EmployeeEntity();
-			temp.setId(emt.getId());
-			if (emt.getEmployee_name().contains("$")) {
+			//temp.setId(emt.getId());
+			/*if (emt.getEmployee_name().contains("$")) {
 				temp.setEmployee_name(emt.getEmployee_name().replaceAll("\\$", ""));
-			}
-			transformedvalues.add(temp);
+			}*/
+			temp.setEmployee_name(emt.getEmployee_name());
+			transformedvalues.add(temp.getEmployee_name());
 		}
 		return transformedvalues;
 	}

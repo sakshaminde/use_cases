@@ -1,8 +1,11 @@
 package com.example.KPI.demo1;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EmployeeRepo extends CrudRepository<EmployeeEntity, Integer>{
+@Repository
+public interface EmployeeRepo extends JpaRepository<EmployeeEntity, Integer>{
 	
 
 }
